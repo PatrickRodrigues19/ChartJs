@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gráfico de Linhas com Chart.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+
+<body>
+    <canvas id="meuGrafico"></canvas>
+
+    <script>
+        // Dados para o gráfico
+        var dados = {
+            labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [
+                {
+                    label: 'Temperatura (°C)',
+                    borderColor: '#ff0000',
+                    backgroundColor: '#f77060',
+                    borderWidth: 3,
+                    data: [30, 29, 28, 25, 22, 23]
+                },
+                {
+                    label: 'Umidade (%)',   
+                    borderColor: '#2f7ef5',
+                    backgroundColor: '#76a8f5',
+                    borderWidth: 3,
+                    data: [80, 82, 80, 85, 80, 83]
+                }
+            ]
+        };
+
+        // Configurações do gráfico
+        var config = {
+            type: 'line',
+            data: dados,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Criação do gráfico no elemento canvas
+        var ctx = document.getElementById('meuGrafico').getContext('2d');
+        new Chart(ctx, config);
+    </script>
+</body>
+
+</html>
